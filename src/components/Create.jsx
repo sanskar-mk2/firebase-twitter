@@ -19,6 +19,12 @@ function Create() {
         }
     };
 
+    const handleKeyDown = (e) => {
+        if (e.ctrlKey && e.key === "Enter") {
+            create_tweet(e);
+        }
+    };
+
     return (
         <form
             onSubmit={create_tweet}
@@ -29,6 +35,7 @@ function Create() {
                 placeholder="What's happening?"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e)}
             ></textarea>
             <input
                 type="submit"
